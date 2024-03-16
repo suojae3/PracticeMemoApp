@@ -22,6 +22,8 @@
     // 카운터 레이블과 증가 버튼을 설정하는 helper 메소드를 호출
     [self setupCounterLabel];
     [self setupIncrementButton];
+    
+    self.practiceDictionary1;
 }
 
 // 카운터 레이블을 설정하고 뷰에 추가하는 메소드
@@ -58,5 +60,40 @@
     // 변경된 카운터 값을 레이블에 반영
     self.counterLabel.text = [NSString stringWithFormat:@"%ld", (long)self.counterValue];
 }
+
+
+- (void) practiceDictionary1 {
+    
+    /// NSDictionary 생성하기
+    NSDictionary *testDictionary = @{@"key1": @"value1", @"key2": @"value2", @"key3": @"value3"};
+    NSLog(@"Dictionary: %@", testDictionary);
+    
+    /// 딕셔너리 값 접근하기
+    NSString *value = testDictionary[@"key2"];
+    NSLog(@"value for key2: %@", value);
+
+    /// 딕셔너리 순회하기
+    for (NSString *key in testDictionary) {
+        NSLog(@"Key: %@, Value: %@", key, testDictionary[key]);
+    }
+    
+    /// NSMutableDictionary 생성하기
+    NSMutableDictionary *mutableDictionary = [NSMutableDictionary dictionary];
+    [mutableDictionary setObject: @"value1" forKey:@"key1"];
+    [mutableDictionary setObject:@"value2" forKey:@"key2"];
+    NSLog(@"Mutable Dictionary: %@", mutableDictionary);
+    
+    /// 딕셔너리 수정하기
+    /// 키가 "key1"인 값을 수정
+    [mutableDictionary setObject:@"newValue1" forKey:@"key1"];
+    /// 새로운 키-밸류 추가
+    [mutableDictionary setObject:@"value3" forKey:@"key3"];
+    NSLog(@"Updated Mutable Dictionary: %@", mutableDictionary);
+    
+    /// 딕셔너리 제거하기
+    [mutableDictionary removeObjectForKey:@"key2"];
+    NSLog(@"Mutable Dictionary after removing key2: %@", mutableDictionary);
+}
+
 
 @end
